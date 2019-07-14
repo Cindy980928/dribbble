@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Ambled</string>
+    <string name="login_fail">fail</string>
+</resources>
