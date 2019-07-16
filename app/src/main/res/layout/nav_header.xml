@@ -2,8 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="@color/white"
+    android:layout_height="240dp"
     >
 
     <ImageView
@@ -17,6 +16,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/dribbble"
         android:contentDescription="..." />
 
     <TextView
@@ -32,7 +32,9 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userAvatar" />
+        app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+        android:text="Hello"
+        />
 
     <TextView
         android:id="@+id/userInfo"
@@ -46,6 +48,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintTop_toBottomOf="@+id/userName"
+        android:text="Word"/>
 
 </android.support.constraint.ConstraintLayout>

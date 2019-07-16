@@ -1,26 +1,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:width="24dp"
-            android:height="24dp"
+            android:width="28dp"
+            android:height="28dp"
+            android:viewportHeight="28.0"
+            android:viewportWidth="28.0"
             android:id="@+id/nav_shot"
             android:icon="@mipmap/camera"
             android:title="SHOT"/>
         <item
-            android:width="24dp"
-            android:height="24dp"
+            android:viewportHeight="28.0"
+            android:viewportWidth="28.0"
+            android:width="28dp"
+            android:height="28dp"
             android:id="@+id/nav_song"
             android:icon="@mipmap/like"
             android:title="Likes"/>
         <item
-            android:width="24dp"
-            android:height="24dp"
+            android:viewportHeight="28.0"
+            android:viewportWidth="28.0"
+            android:width="28dp"
+            android:height="28dp"
             android:id="@+id/nav_follow"
             android:icon="@mipmap/followers"
             android:title="FALLOWING"/>
         <item
-            android:width="24dp"
-            android:height="24dp"
+            android:viewportHeight="28.0"
+            android:viewportWidth="28.0"
+            android:width="28dp"
+            android:height="28dp"
             android:id="@+id/nav_logout"
             android:icon="@mipmap/logout"
             android:title="LOG OUT"/>
