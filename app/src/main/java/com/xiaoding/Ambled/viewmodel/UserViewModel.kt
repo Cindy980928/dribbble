@@ -38,6 +38,7 @@ class UserViewModel : ViewModel() {
             }
 
             override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
+                Logger.d("access_token",response.body()!!.accesstoken.toString())
                 App.get().saveUserToken(response.body()!!.accesstoken.toString())
                 result.postValue(NetworkResource.success(response.body()) as NetworkResource<TokenResponse>?)
             }

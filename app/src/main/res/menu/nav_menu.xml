@@ -13,7 +13,7 @@
             android:viewportWidth="28.0"
             android:width="28dp"
             android:height="28dp"
-            android:id="@+id/nav_song"
+            android:id="@+id/nav_like"
             android:icon="@mipmap/like"
             android:title="Likes"/>
         <item
