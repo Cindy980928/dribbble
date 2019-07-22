@@ -26,6 +26,7 @@ class SplashActivity: BaseActivity(){//BaseActivity里关于Activity的管理
 
         App.get().mainHandler!!.postDelayed({
             if(App.get().userToken!=null){
+                Logger.d("accesstoken",App.get().userToken!!)
                 startActivity(MainActivity::class.java)
             }
             else {

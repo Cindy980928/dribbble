@@ -49,6 +49,7 @@ class LoginActivity :BaseActivity(),View.OnClickListener{
         loginImg=findViewById<ImageView>(R.id.loginimg)
         loginBtn=findViewById<Button>(R.id.button_login)
 
+
         mywebview!!.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 closeLoadingDialog()
