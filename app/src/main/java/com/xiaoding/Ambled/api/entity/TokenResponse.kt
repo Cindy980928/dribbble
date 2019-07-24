@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 //"access_token":"0f186021842d097d3e96414894ca6cd5ee4742ae594bdb0d2927162fb53da61a","token_type":"Bearer","scope":"public upload","created_at":1562243951
 
-class TokenResponse {
+class TokenResponse :BaseResponse(){
     @SerializedName("access_token")
     val accesstoken:String?=null
 

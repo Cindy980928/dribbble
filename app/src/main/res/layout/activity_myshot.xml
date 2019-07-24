@@ -5,36 +5,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:id="@+id/img"></WebView>
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
+        app:navigationIcon="@mipmap/returnicon"
         app:contentInsetStart="0dp">
-
-        <TextView
-            android:id="@+id/tv_bar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:text="SHOTS"
-            android:textColor="@color/black" />
-
+    <TextView
+        android:id="@+id/tv_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="My SHOTS"
+        android:textColor="@color/black" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/myshotRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

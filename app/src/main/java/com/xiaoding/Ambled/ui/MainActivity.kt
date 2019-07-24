@@ -3,6 +3,7 @@ package com.xiaoding.Ambled.ui
 import android.Manifest
 import android.app.DownloadManager
 import android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED
+import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -24,11 +25,16 @@ import android.view.View
 import android.webkit.URLUtil
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.xiaoding.Ambled.App
 import com.xiaoding.Ambled.R
 import com.xiaoding.Ambled.adapter.RecyclerViewAdapter
 import com.xiaoding.Ambled.bean.ShotMessage
+import com.xiaoding.Ambled.data.Reponsitory
 import com.xiaoding.Ambled.utils.Logger
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -36,13 +42,18 @@ import java.io.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(){
-    var navigationView: NavigationView? =null
-    var recyclerView:RecyclerView?=null
-    var webView:WebView?=null
-    var adapter:RecyclerViewAdapter?=null
-    var myshotfragment:MyshotFragment?=null
-    var imgSrc:String?=null
-    var path:String?=null
+    private var navigationView: NavigationView? =null
+    private var recyclerView:RecyclerView?=null
+    private var webView:WebView?=null
+    private var adapter:RecyclerViewAdapter?=null
+    private var myshotfragment:MyshotsActivity?=null
+    private var imgSrc:String?=null
+    private var path:String?=null
+    private var headView:View?=null
+    private var nameTextView:TextView?=null
+    private var cityTextView:TextView?=null
+    private var headImg:ImageView?=null
+    private var reponsitory=Reponsitory()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,7 +62,11 @@ class MainActivity : AppCompatActivity(){
         adapter=RecyclerViewAdapter(this,createData())
         webView=findViewById(R.id.img)
         navigationView=findViewById<NavigationView>(R.id.nav_view)
+        headView = navigationView!!.getHeaderView(0)
         navigationView!!.setItemIconTintList(null)//让侧滑菜单项显示本身颜色
+        headImg=headView!!.findViewById(R.id.userAvatar)
+        nameTextView=headView!!.findViewById(R.id.userName)//侧滑菜单头像下面的TextView
+        cityTextView=headView!!.findViewById(R.id.userInfo)
 
         registerForContextMenu(webView)//给webVeiw注册长按事件
 
@@ -64,6 +79,8 @@ class MainActivity : AppCompatActivity(){
         /*同步drawerlayout的状态*/
         mToggle.syncState()
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        setUserInfo()
 
         webView!!.setWebViewClient(object :WebViewClient(){
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -96,7 +113,8 @@ class MainActivity : AppCompatActivity(){
 
                 }
                 R.id.nav_shot->{
-                    frament=myshotfragment
+                    var intent=Intent(this,MyshotsActivity::class.java)
+                    startActivity(intent)
                 }
 
                 R.id.nav_logout->{
@@ -182,6 +200,7 @@ class MainActivity : AppCompatActivity(){
             }
         }
         return super.onContextItemSelected(item)
+
     }
 
     //判断动态权限申请的结果
@@ -219,6 +238,19 @@ class MainActivity : AppCompatActivity(){
 
     }
 
+    fun setUserInfo(){
+        reponsitory.getUserMessage(App.get().userToken!!).observe(this, Observer {resource->
+            if (resource!!.isSuccess) {
+                Logger.d("username",resource.data!!.userName!!)
+                nameTextView!!.setText(resource.data?.userName)
+                cityTextView!!.setText(resource.data?.location)
+                Glide.with(this).load(resource.data?.avatarUrl).into(headImg!!)
+            }
+            else{
+                Logger.d("username","失败")
+            }
+        })
+    }
 }
 
 

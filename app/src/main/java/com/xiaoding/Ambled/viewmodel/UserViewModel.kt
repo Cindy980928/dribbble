@@ -42,8 +42,6 @@ class UserViewModel : ViewModel() {
                 App.get().saveUserToken(response.body()!!.accesstoken.toString())
                 result.postValue(NetworkResource.success(response.body()) as NetworkResource<TokenResponse>?)
             }
-
-
         })
         return result
     }

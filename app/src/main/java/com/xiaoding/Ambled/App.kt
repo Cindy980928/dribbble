@@ -68,7 +68,7 @@ class App : MultiDexApplication() {
 //        val task = instanceId.instanceId
 //        task.addOnCompleteListener(OnCompleteListener { task ->
 //            if (!task.isSuccessful) {
-//                return@OnCompleteListener
+//                returnicon@OnCompleteListener
 //            }
 //            // Get new Instance ID userToken
 //            if (task.result != null) {
@@ -80,7 +80,7 @@ class App : MultiDexApplication() {
 //
 //    fun sendToken(msgToken: String) {
 //        if (userToken == null) {
-//            return
+//            returnicon
 //        }
 //        val request = UploadFCMTokenRequest()
 //        request.token = msgToken

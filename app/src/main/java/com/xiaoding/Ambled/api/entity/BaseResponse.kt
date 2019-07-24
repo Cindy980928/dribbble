@@ -1,6 +1,6 @@
 package com.xiaoding.Ambled.api.entity
 
-class BaseResponse {    var code: Int = 0
+open class BaseResponse {    var code: Int = 0
     var msg: String? = null
 
     val isSuccess: Boolean

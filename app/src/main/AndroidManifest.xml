@@ -23,5 +23,7 @@
         </activity>
         <activity android:name=".ui.LoginActivity"></activity>
         <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.MyshotsActivity"></activity>
+        <activity android:name=".ui.ShotDetailActivity"></activity>
     </application>
 </manifest>

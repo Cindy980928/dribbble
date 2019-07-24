@@ -9,7 +9,7 @@ class BuildConfig {
         val VERSION_CODE = 1
         val VERSION_NAME = "1.0"
         // Fields from build type: debug
-        val BASE_URL = "api.dribbble.com/v2/"
+        val BASE_URL = "https://api.dribbble.com/v2/"
         val TAKEN_URL="https://dribbble.com/"
 
     }
